@@ -5,9 +5,9 @@ import { useConfigurator, PRICES, Loadout } from "@/lib/store";
 import { MotionWrapper, MotionItem } from "@/components/motion-wrapper";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Wifi, Monitor, Armchair } from "lucide-react";
+import { Wifi, Monitor, Armchair, LucideIcon } from "lucide-react";
 
-const LOADOUTS: { id: keyof Loadout; label: string; price: number; icon: React.ElementType }[] = [
+const LOADOUTS: { id: keyof Loadout; label: string; price: number; icon: LucideIcon }[] = [
     {
         id: "starlink",
         label: "Starlink Priority",
