@@ -1,11 +1,11 @@
 "use client";
+"use client";
 
 import React, { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useConfigurator } from "@/lib/store";
 import { Box, Cylinder, Sphere, Html } from "@react-three/drei";
 import * as THREE from "three";
-import { motion } from "framer-motion-3d";
 
 // Materials
 const wallMaterial = new THREE.MeshStandardMaterial({
@@ -111,13 +111,9 @@ export function RoomModel() {
             </mesh>
 
             {/* Dynamic Room Geometry */}
-            <motion.group
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", duration: 0.8 }}
-            >
+            <group>
                 {getRoomGeometry()}
-            </motion.group>
+            </group>
 
             {/* Loadout Items */}
             {loadout.starlink && (
