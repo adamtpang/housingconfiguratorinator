@@ -39,30 +39,33 @@ export function LoadoutSelection() {
             </div>
 
             <MotionWrapper animation="staggerContainer" className="space-y-4">
-                {LOADOUTS.map((item) => (
-                    <MotionItem key={item.id}>
-                        <div className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-secondary/50">
-                            <div className="flex items-center gap-4">
-                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
-                                    <item.icon className="h-5 w-5" />
+                {LOADOUTS.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <MotionItem key={item.id}>
+                            <div className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-secondary/50">
+                                <div className="flex items-center gap-4">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
+                                        <Icon className="h-5 w-5" />
+                                    </div>
+                                    <div className="space-y-0.5">
+                                        <Label htmlFor={item.id} className="text-base font-medium cursor-pointer">
+                                            {item.label}
+                                        </Label>
+                                        <p className="text-sm text-muted-foreground">
+                                            +${item.price}/mo
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="space-y-0.5">
-                                    <Label htmlFor={item.id} className="text-base font-medium cursor-pointer">
-                                        {item.label}
-                                    </Label>
-                                    <p className="text-sm text-muted-foreground">
-                                        +${item.price}/mo
-                                    </p>
-                                </div>
+                                <Switch
+                                    id={item.id}
+                                    checked={loadout[item.id]}
+                                    onCheckedChange={() => toggleLoadout(item.id)}
+                                />
                             </div>
-                            <Switch
-                                id={item.id}
-                                checked={loadout[item.id]}
-                                onCheckedChange={() => toggleLoadout(item.id)}
-                            />
-                        </div>
-                    </MotionItem>
-                ))}
+                        </MotionItem>
+                    );
+                })}
             </MotionWrapper>
         </div>
     );
