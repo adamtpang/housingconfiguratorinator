@@ -9,6 +9,7 @@ import { SummaryFooter } from "@/components/SummaryFooter";
 import { ConfiguratorProvider } from "@/lib/store";
 
 export default function Home() {
+  console.log("Rendering Home Page");
   return (
     <ConfiguratorProvider>
       <ConfiguratorLayout>
