@@ -30,7 +30,7 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
     transmission: 0.9,
     opacity: 0.5,
     transparent: true,
-    roughness: 0,
+    roughness: 0.05,
     ior: 1.5,
 });
 

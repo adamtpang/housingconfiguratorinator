@@ -10,7 +10,7 @@ export function Scene() {
     return (
         <div className="h-full w-full">
             <Canvas shadows dpr={[1, 2]}>
-                <PerspectiveCamera makeDefault position={[4, 4, 4]} fov={50} />
+                <PerspectiveCamera makeDefault position={[4, 4, 4]} fov={50} near={0.1} far={100} />
 
                 {/* Lighting - Technical/Studio Setup */}
                 <ambientLight intensity={0.5} />
@@ -20,6 +20,7 @@ export function Scene() {
                     penumbra={1}
                     intensity={1}
                     castShadow
+                    shadow-bias={-0.0001}
                 />
                 <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
@@ -33,8 +34,9 @@ export function Scene() {
                         position={[0, 0, 0]}
                         opacity={0.4}
                         scale={10}
-                        blur={2}
+                        blur={2.5}
                         far={4}
+                        resolution={512}
                     />
                 </group>
 
